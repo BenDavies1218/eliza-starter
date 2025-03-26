@@ -6,9 +6,7 @@ import {
   stringToUuid,
   type Character,
 } from "@elizaos/core";
-import { bootstrapPlugin } from "@elizaos/plugin-bootstrap";
 import { createNodePlugin } from "@elizaos/plugin-node";
-import { solanaPlugin } from "@elizaos/plugin-solana";
 import fs from "fs";
 import net from "net";
 import path from "path";
@@ -23,6 +21,7 @@ import {
   parseArguments,
 } from "./config/index.ts";
 import { initializeDatabase } from "./database/index.ts";
+import { helloPlugin } from "./plugins/hello/index.ts";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -56,9 +55,8 @@ export function createAgent(
     evaluators: [],
     character,
     plugins: [
-      bootstrapPlugin,
+      helloPlugin,
       nodePlugin,
-      character.settings?.secrets?.WALLET_PUBLIC_KEY ? solanaPlugin : null,
     ].filter(Boolean),
     providers: [],
     actions: [],
