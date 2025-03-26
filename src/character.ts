@@ -1,8 +1,9 @@
 import { Character, ModelProviderName } from "@elizaos/core";
+import { goodbyePlugin } from "./plugins/goodbye/index.ts";
 import { helloPlugin } from "./plugins/hello/index.ts";
 export const character: Character = {
   name: "Ben",
-  plugins: [helloPlugin],
+  plugins: [helloPlugin, goodbyePlugin],
   clients: [],
   modelProvider: ModelProviderName.ANTHROPIC,
   settings: {

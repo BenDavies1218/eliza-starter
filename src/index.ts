@@ -21,7 +21,6 @@ import {
   parseArguments,
 } from "./config/index.ts";
 import { initializeDatabase } from "./database/index.ts";
-import { helloPlugin } from "./plugins/hello/index.ts";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -55,7 +54,6 @@ export function createAgent(
     evaluators: [],
     character,
     plugins: [
-      helloPlugin,
       nodePlugin,
     ].filter(Boolean),
     providers: [],
